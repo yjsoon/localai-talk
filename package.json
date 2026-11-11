@@ -1,0 +1,15 @@
+{
+  "name": "abc-local-ai-intro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A 10-minute Marp introduction to local AI for ABC",
+  "scripts": {
+    "build": "mkdir -p dist/assets && cp assets/*.png dist/assets/ && marp deck.md --theme theme.css --html --allow-local-files --output dist/index.html && marp deck.md --theme theme.css --pdf --allow-local-files --output dist/local-ai-in-ten-minutes.pdf",
+    "preview": "marp --server . --theme theme.css",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name abc-local-ai-intro"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.0",
+    "wrangler": "4.126.0"
+  }
+}
